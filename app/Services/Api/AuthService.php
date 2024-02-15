@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Traits\Api\ApiResponseTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class AuthService
@@ -31,7 +32,7 @@ class AuthService
         $user->otp = rand(100000, 999999);
         $user->save();
 
-        //Log::info("Verification code for user {$user->id}: {$user->otp}");
+        Log::info("Verification code for user {$user->id}: {$user->otp}");
 
         return response()->json(['user' => $user, 'message' => 'User registered successfully'], 201);
     }
@@ -61,11 +62,11 @@ class AuthService
     public function verify(Request $request)
     {
         $validatedData = $request->validate([
-            'phone_number' => 'required|string|max:20',
+            'mobile_number' => 'required|string|max:20',
             'otp' => 'required|string|size:6',
         ]);
 
-        $user = User::where('phone_number', $validatedData['phone_number'])
+        $user = User::where('mobile_number', $validatedData['mobile_number'])
                     ->where('otp', $validatedData['otp'])
                     ->first();
 
