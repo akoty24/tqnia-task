@@ -42,9 +42,8 @@ Features
   - Number of users with 0 posts.
 - Results are cached and updated with every update to the related models (User and Post).
 
-<h3>
-Setup
-</h3>
+
+ ## Setup
 
 To set up the project locally, follow these steps:
 
@@ -55,7 +54,7 @@ To set up the project locally, follow these steps:
 5 Serve the application with php artisan serve.
 6 <h5>Accessing the API Collection</h5> 
    - Navigate to the root folder of the Laravel project.
-   - Look for the API collection file named project.postman_collection or similarly named file.
+   - Look for the API collection file named api.postman_collection or similarly named file.
    - Import this collection into your preferred API development environment (e.g., Postman, Insomnia) to explore the available endpoints and their functionalities.
 ## API Endpoints
 
