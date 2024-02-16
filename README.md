@@ -58,11 +58,11 @@ To set up the project locally, follow these steps:
    - Import this collection into your preferred API development environment (e.g., Postman, Insomnia) to explore the available endpoints and their functionalities.
 ## API Endpoints
 
-- /register: User registration endpoint.
-- /login: User login endpoint.
-- /tags: Tags API resource endpoints.
-- /posts: Posts API resource endpoints.
-- /stats: Stats API endpoint.
+- `/register`: User registration endpoint.
+- `/login`: User login endpoint.
+- `/tags`: Tags API resource endpoints.
+- `/posts`: Posts API resource endpoints.
+- `/stats`: Stats API endpoint.
 
 ## Dependencies
 - Laravel Framework 10.x
