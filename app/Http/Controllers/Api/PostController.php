@@ -46,7 +46,7 @@ class PostController extends Controller
         $data = [
             'post' => new PostResource($post),
         ];
-        return $this->successResponse('Post created successfully', ['data' => $data], 201);
+        return $this->successResponse('Post created successfully', $data, 201);
     }
 // showPost by id
     public function show(Post $post)
@@ -74,7 +74,7 @@ class PostController extends Controller
             'post' => new PostResource($post),
         ];
     
-        return $this->successResponse('Post updated successfully', ['data' => $data], 200);
+        return $this->successResponse('Post updated successfully', $data, 200);
     }
 // deletePost
     public function destroy(Post $post)
@@ -118,7 +118,7 @@ class PostController extends Controller
     $data = [
         'post' => new PostResource($post),
     ];
-    return $this->successResponse('Post restored successfully', ['data' => $data], 200);
+    return $this->successResponse('Post restored successfully', $data, 200);
 
     }
 }
