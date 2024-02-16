@@ -1,23 +1,26 @@
 <?php
-
 namespace App\Services\Api;
-
 use App\Models\Tag;
-
 class TagService
 {
-
-    public function createTag(array $data): Tag
+    public function createTag(array $data): ?Tag
     {
-        return Tag::create($data);
+        try {
+            $tag = Tag::create($data);
+        } catch (\Exception $e) {
+            return null;
+        }
+        return $tag;
     }
-    public function updateTag(Tag $tag, array $data): void
+    public function updateTag(Tag $tag, array $data): ?Tag
     {
-        $tag->update($data);
+        $tag->update([
+            'name' => $data['name'] ?? $tag->name,
+        ]);
+        return $tag;
     }
-
-    public function deleteTag(Tag $tag): void
+    public function deleteTag(Tag $tag): bool
     {
-        $tag->delete();
+        return $tag->delete();
     }
 }

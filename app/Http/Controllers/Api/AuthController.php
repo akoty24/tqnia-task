@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\Api\RegisterRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\LoginRequest;
+use App\Http\Requests\Api\VerifyOTPRequest;
+use App\Http\Requests\Api\VerifyRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Services\Api\AuthService;
@@ -22,17 +24,18 @@ class AuthController extends Controller
     {
         $this->authService = $authService;
     }
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
         return $this->authService->register($request);
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
+
         return $this->authService->login($request);
     }
 
-    public function verify(Request $request)
+    public function verify(VerifyRequest $request)
     {
         return $this->authService->verify($request);
     }

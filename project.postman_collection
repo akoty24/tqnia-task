@@ -1,0 +1,620 @@
+{
+	"info": {
+		"_postman_id": "382f9ab9-a3ab-4aa5-b9cd-88eaed7924c4",
+		"name": "Tqnia_Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17933149"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "mohamed",
+									"type": "text"
+								},
+								{
+									"key": "mobile_number",
+									"value": "010274016816",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile_number",
+									"value": "959.724.7681",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify-otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile_number",
+									"value": "010274016816",
+									"type": "text"
+								},
+								{
+									"key": "otp",
+									"value": "817261",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/verify-otp",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"verify-otp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "all_tags",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|UI9VQiBlGOZFMnQNbyBb9H8LCxYC4nx7tNn3c8Xtcac9e951",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/tags",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_one_tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|UI9VQiBlGOZFMnQNbyBb9H8LCxYC4nx7tNn3c8Xtcac9e951",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/tags/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|UI9VQiBlGOZFMnQNbyBb9H8LCxYC4nx7tNn3c8Xtcac9e951",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "tag32",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/tags",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tags"
+							],
+							"query": [
+								{
+									"key": "name ",
+									"value": "tag",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|UI9VQiBlGOZFMnQNbyBb9H8LCxYC4nx7tNn3c8Xtcac9e951",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"tagu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/tags/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|PVuzu9P5seQDjcc3gXALFxAyJKJYKUB2hpe46Tvce3e868bb",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/tags/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "all_post",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|qOXGhgs5oOTxNogG1yHXW2nWw42wzCnJfPnuveVd04df4082",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_one_post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|PVuzu9P5seQDjcc3gXALFxAyJKJYKUB2hpe46Tvce3e868bb",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/posts/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|UI9VQiBlGOZFMnQNbyBb9H8LCxYC4nx7tNn3c8Xtcac9e951",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "title",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "body",
+									"type": "text"
+								},
+								{
+									"key": "pinned",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tags[0]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tags[1]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "cover_image",
+									"type": "file",
+									"src": "postman-cloud:///1eeccc64-65e4-4c40-a3aa-33730c7d65a4"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "name ",
+									"value": "tag",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|UI9VQiBlGOZFMnQNbyBb9H8LCxYC4nx7tNn3c8Xtcac9e951",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"title\": \"New Post Title 2\",\r\n     \"body\": \"This is the body of the new post.\",\r\n     \"pinned\": true,\r\n     \"tags\": [1]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/posts/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|UI9VQiBlGOZFMnQNbyBb9H8LCxYC4nx7tNn3c8Xtcac9e951",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/posts/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleted-posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|UI9VQiBlGOZFMnQNbyBb9H8LCxYC4nx7tNn3c8Xtcac9e951",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/deleted-posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"deleted-posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore-posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|UI9VQiBlGOZFMnQNbyBb9H8LCxYC4nx7tNn3c8Xtcac9e951",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/restore-posts/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"restore-posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stars",
+			"item": [
+				{
+					"name": "stats",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|qOXGhgs5oOTxNogG1yHXW2nWw42wzCnJfPnuveVd04df4082",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/stats",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000/api",
+			"type": "string"
+		}
+	]
+}

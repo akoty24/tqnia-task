@@ -1,66 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center"> 
+Laravel Sanctum Authentication System with Tags and Posts API
+</h1>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h3> 
+Features
+</h3>
 
-## About Laravel
+## Authentication System with Sanctum
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- User registration with name, phone number, and password.
+- User login with authentication token.
+- Generation and logging of a random 6-digit verification code for each user.
+- Endpoint for verifying the code sent to the user.
+- Only verified accounts can login.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Tags API Resource
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Authenticated users can view, store, update, and delete tags.
+- Tags have unique names. 
+## Posts API Resource
+- Authenticated users can view, store, update, and delete their posts.
+- Authenticated users can view their deleted posts and restore them.
+- Posts include title, body, cover image, pinned status, and one or more tags.
+- Pinned posts appear first for every user.
+- Data validation for storing and updating posts.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Scheduled Jobs
 
-## Laravel Sponsors
+- A daily job force-deletes softly-deleted posts older than 30 days.
+- A job runs every six hours making an HTTP request to an external endpoint 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+## Stats API Endpoint
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- Endpoint that returns:
+  - Number of all users.
+  - Number of all posts.
+  - Number of users with 0 posts.
+- Results are cached and updated with every update to the related models (User and Post).
 
-## Contributing
+<h3>
+Setup
+</h3>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+To set up the project locally, follow these steps:
 
-## Code of Conduct
+1 Clone the repository.
+2 Install dependencies with composer install.
+3 Set up your environment variables in the .env file, including database configuration and Sanctum settings.
+4 Run migrations and seeders with php artisan migrate --seed.
+5 Serve the application with php artisan serve.
+6 <h5>Accessing the API Collection</h5> 
+   - Navigate to the root folder of the Laravel project.
+   - Look for the API collection file named api.postman_collection or similarly named file.
+   - Import this collection into your preferred API development environment (e.g., Postman, Insomnia) to explore the available endpoints and their functionalities.
+## API Endpoints
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- /register: User registration endpoint.
+- /login: User login endpoint.
+- /tags: Tags API resource endpoints.
+- /posts: Posts API resource endpoints.
+- /stats: Stats API endpoint.
 
-## Security Vulnerabilities
+## Dependencies
+- Laravel Framework 10.x
+- Laravel Sanctum
+- SQLite Database
+- PHP HTTP Client (for making HTTP requests to external endpoint)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Notes
+- Ensure that the necessary cron jobs are set up for running scheduled tasks.
+- Verify that the caching mechanism is properly configured for the /stats endpoint.
 
-## License
+Feel free to explore and customize the project according to your needs. If you have any questions or feedback, please don't hesitate to reach out!
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
